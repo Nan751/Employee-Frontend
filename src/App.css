@@ -1,10 +1,31 @@
 .App {
   text-align: center;
 }
-
+body{
+  background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTlPxJIvJob7FdhSKGl9NMYzSVT95FnVFFxUR1ZG5YGdvODigUWH1dcD9yKcYXmjL1Nz7E&usqp=CAU);
+}
+body{
+  text-align: center;
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;
+}
+/* table td, table th ,table tr {
+  padding: 15px;
+  background-color:bisque;
+  
+} */
+/* .tab
+{
+  color: rgb(255, 255, 255);
+} */
+.list{
+  font-weight: bold;
+}
+h1{
+  text-align: center;
+  text-decoration: doubleS;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -36,3 +57,105 @@
     transform: rotate(360deg);
   }
 }
+body{
+  /* background-image: url('background.jpg'); */
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+.btn{
+  text-align: center;
+  width: 100%;
+}
+
+table{
+  width: 80%;
+  margin: 40px auto;
+  background: rgba(55, 97, 116, 0.733);
+  box-shadow: 5px 10px 5px 2px black;
+}
+
+table.list{
+  text-align: center;
+  width: 100%;
+}
+td{
+  border: 1px solid rgb(204,200,200);
+  text-align: left;
+  padding: 8px 15px;
+  box-shadow: inset black;
+}
+
+tr:nth-child(even), table.list thead> tr{
+  background-color: rgb(204,200,200);
+}
+.input,input[type="text"]{
+  width:20%;
+  padding:12px 20px;
+  margin:8px 0;
+  display: inline-block;
+  border: 1px solid rgb(165,161,161); 
+  border-radius: 4px;
+
+}
+.input{
+  
+}
+.box{
+  width: 20%;
+  padding:12px 20px;
+  margin:8px 0;
+  display:flex;
+  margin-left:575px ;
+  border: 1px solid rgb(165,161,161);
+  border-radius: 4px;
+}
+
+
+/* .input,input[type="text"],input[type="reset"]{
+  background: #eee;
+  padding:6px 12px;
+  margin:15px 0 10px;
+  display: inline-block;
+  border: none;
+  border-radius: 30px;
+  font-size: 1rem;
+  cursor: pointer;
+  outline: none;
+} */
+
+/* input[type="text"]:hover{
+  background: #4b99d8;
+} */
+
+input[type="text"]:hover{
+  background: #4b99d8;
+}
+
+button{
+  background: #eee;
+  padding:6px 12px;
+  margin:15px 0 10px;
+  display: inline-block;
+  border: none;
+  border-radius: 30px;
+  font-size: 1rem;
+  cursor: pointer;
+  outline: none;
+} 
+
+button:hover{
+  background:#052c4e ;
+}
+h1{
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+/* p{
+  display: inline-block;
+} */
+/* .input-box1{
+  display:in;
+  width:20%;
+} */
+
