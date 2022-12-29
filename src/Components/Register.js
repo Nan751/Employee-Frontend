@@ -4,10 +4,7 @@ import Dropdown from 'react-dropdown';
 import 'react-dropdown/style.css';
 
 const Register=()=>{
-    const[name,setname]=useState("")
-    const[allData,setalldata]=useState([])
-    const[show,setshow]=useState(false)
-    const[editindex,seteditindex]=useState()
+   
     const[Employee, setEmployee]=useState({
         EmployeeCode:"",
         EmployeeName:"",
@@ -28,53 +25,34 @@ const Register=()=>{
 
     
 const {regEmployeeCode,regEmployeeName,regCtc,regBasic,regPf,regMedical,regTelephone,regLta,regSpiallowance}=Employee;
-const handleEdit=(i)=>{
-    setname(allData[i])
-    setshow(true)
-    seteditindex(i)
+
+const calmulti =()=>{
+    var sal =document.getElementById("validation1").value
+    const ctcnum =(Employee.regCtc*35)
+    //const basnum = (Employee.regBasic*12)
+    console.log(ctcnum);
+    setEmployee({...Employee,regBasic:ctcnum.toString()})
+
 }
-// function setdrop(){
-//     debugger
-//     var basic=document.getElementById("CTC").value
-//     var pfAmt=0
-//     if(empHraType == "metro")
-    
-//     {
-//         basic=(CTC/100)*35
-//         pfAmt=(basic/100)*12
-//     }
-//     else{
-//         basic=(CTC/100)*35
-//         pfAmt=(basic/100)*12
-//     }
 
-//         document.getElementById("basic").value=CTC
-//         document.getElementById("pfAmt").value=pfAmt
-//         setTotal()
-    
-    
-// }
-// function setTotal(){
-//     debugger
-//     var CTC=parseInt(document.getElementById("CTC").value == "" ? 0 : document.getElementById("CTC").value)
-//     //var ltaAmt=parseInt(document.getElementById("ltaAmt").value)
-//     var medical=parseInt(document.getElementById("medical").value == "" ? 0 : document.getElementById("medical").value)
-//     //var fualAmt=parseInt(document.getElementById("fualAmt").value)
-//     var basic=parseInt(document.getElementById("basic").value)
-//     // var hraAmt=parseInt(document.getElementById("hraAmt").value)
-//     var pfAmt=parseInt(document.getElementById("pfAmt").value)
-   
-//     // if(fualAmt>1800)
-//     // {
-//     //     fualAmt=1800
-//     //     document.getElementById("fualAmt").value=fualAmt
-//     // }
-//    document.getElementById("CTC").value=CTC
-//    document.getElementById("medical").value=medical
-//     document.getElementById("specialAmt").value=basic-(CTC+medical+pfAmt)
+const calpf =()=>{
+    var salpf =document.getElementById("validation2").value
+    const basnum = (Employee.regBasic*12)
+    console.log(basnum);
+    setEmployee({...Employee,regPf:basnum.toString()})
+}
 
 
-// }
+const caltol =()=>{
+    var salpf =document.getElementById("validation6").value
+    const tolnum = (Employee.regBasic*Employee.regCtc)
+    console.log(caltol);
+    setEmployee({...Employee,regSpiallowance:tolnum.toString()})
+}
+
+
+
+
 
 function OnMan() {
     
@@ -152,11 +130,11 @@ const oninputChange= e=>{
                    <input type ="text"
                     placeholder="EmployeeName"
                     id='validation4'
-
-                    name="regEmployeeName"value={regEmployeeName}
+                    name="regEmployeeName"
+                    value={regEmployeeName}
                     onChange={e =>oninputChange(e)}
                     />
-                                    <p onClick={OnMan} id='testing4'></p>
+                    <p onClick={OnMan} id='testing4'></p>
 
                 </div>
                 <div className='input-box1'>
@@ -173,24 +151,24 @@ const oninputChange= e=>{
 
                 
                 <div className='input-box'>
-                   <input type ="text"
+                   <input readOnly
                     placeholder="Basic"
                     id='validation2'
                     name="regBasic"
+                    onMouseMove={e =>calmulti(e)}
                     value={regBasic}
                     onChange={e =>oninputChange(e)}
                     />
                      <p onClick={OnMan} id='testing2'></p>
                 </div>
-               
-
-                
+              
                 <div className='input-box'>
                    <input type ="text"
                     placeholder="PF"
                     name="regPf"
                     id='validation3'
                     className='box'
+                    onMouseMove={e =>calpf(e)}
                     value={regPf}
                     onChange={e =>oninputChange(e)}
                     />
@@ -242,6 +220,7 @@ const oninputChange= e=>{
                     name="regSpiallowance"
                     value={regSpiallowance}
                     id='validation6'
+                    onMouseMove={e =>caltol(e)}
                     onChange={e =>oninputChange(e)}
                     />
                     <p onClick={OnMan} id='testing6'></p>
