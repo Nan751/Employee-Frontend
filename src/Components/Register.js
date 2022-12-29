@@ -28,8 +28,7 @@ const {regEmployeeCode,regEmployeeName,regCtc,regBasic,regPf,regMedical,regTelep
 
 const calmulti =()=>{
     var sal =document.getElementById("validation1").value
-    const ctcnum =(Employee.regCtc*35)
-    //const basnum = (Employee.regBasic*12)
+    const ctcnum =Math.ceil(Employee.regCtc*35)
     console.log(ctcnum);
     setEmployee({...Employee,regBasic:ctcnum.toString()})
 
@@ -37,20 +36,33 @@ const calmulti =()=>{
 
 const calpf =()=>{
     var salpf =document.getElementById("validation2").value
-    const basnum = (Employee.regBasic*12)
+    const basnum = Math.ceil(Employee.regBasic*12)
     console.log(basnum);
     setEmployee({...Employee,regPf:basnum.toString()})
 }
 
-
-const caltol =()=>{
-    var salpf =document.getElementById("validation6").value
-    const tolnum = (Employee.regBasic*Employee.regCtc)
-    console.log(caltol);
-    setEmployee({...Employee,regSpiallowance:tolnum.toString()})
+const totalcal =()=>{
+    var caltal  =document.getElementById("validation6").value
+    const malvar = Math.ceil(Employee.regBasic/Employee.regPf/Employee.regMedical)
+    console.log(malvar);
+    setEmployee({...Employee,regSpiallowance:malvar.toString()})
 }
 
+// function onclicker(){      
+//     var ctcamt = document.getElementById("validation1").value; 
+//     var basicamt = document.getElementById("validation2").value;
+//     var pfamt = document.getElementById("validation3").value;
+//     var num= ctcamt * basicamt;
+//     var num1 = basicamt * pfamt;
 
+//     document.getElementById("num").value =ctcamt +basicamt/100*35;
+//     setEmployee({...Employee,regCtc:num.toString()});
+//     console.log(Employee.regCtc)
+//     document.getElementById("num1").value =basicamt * pfamt/100*12;
+
+//     setEmployee({...Employee,regBasic:num1.toString()});
+//     console.log(Employee.regBasic)
+//   }
 
 
 
@@ -184,7 +196,6 @@ const oninputChange= e=>{
                     placeholder="Medical"
                     name="regMedical"
                     id='validation5'
-
                     value={regMedical}
                     onChange={e =>oninputChange(e)}
                     />
@@ -209,10 +220,10 @@ const oninputChange= e=>{
                 
                <div className='input'>
                 <Dropdown options={options} name='regLta' onChange={(value) => setEmployee({...Employee,
-                  regLta:value.value})} value={Employee.regLta} placeholder="LTA" />
-                  
+                  regLta:value.value})} value={Employee.regLta} placeholder="LTA" />                 
                
                 </div>
+                <br/>
                 
                 <div>
                    <input type ="text"
@@ -220,7 +231,7 @@ const oninputChange= e=>{
                     name="regSpiallowance"
                     value={regSpiallowance}
                     id='validation6'
-                    onMouseMove={e =>caltol(e)}
+                    onMouseMove={e =>totalcal(e)}
                     onChange={e =>oninputChange(e)}
                     />
                     <p onClick={OnMan} id='testing6'></p>
